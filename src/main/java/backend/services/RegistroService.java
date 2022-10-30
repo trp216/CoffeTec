@@ -19,19 +19,17 @@ public class RegistroService {
 		this.rDAO = rDAO;
 	}
 
-	@Override
 	@Transactional
 	public Registro saveRegistro(Registro registro) {
 		return rDAO.save(registro);
 	}
 
-	@Override
 	@Transactional
 	public Registro editRegistro(Registro registro){
 		Registro result = null;
 
-		if(registro.getid_registro()!=null) {
-			Registro old = rDAO.findById(registro.getid_registro());
+		if(registro.getId_registro()!=null) {
+			Registro old = rDAO.findById(registro.getId_registro());
 			if(old!=null) {
 				result = rDAO.update(registro);
 			}
@@ -41,12 +39,10 @@ public class RegistroService {
 		return result;
 	}
 
-	@Override
 	public Registro findById(Integer id) {
 		return rDAO.findById(id);
 	}
 
-	@Override
 	public Iterable<Registro> findAll() {
 		return rDAO.findAll();
 	}

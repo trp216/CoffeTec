@@ -14,38 +14,38 @@ import backend.model.Registro;
 @Repository
 @Transactional
 @Scope("singleton")
-public class RegistroDAO implements IRegistroDAO{
+public class RegistroDAO {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Override
+	
 	public Registro save(Registro entity) {
 		// TODO Auto-generated method stub
 		entityManager.persist(entity);
 		return entity;
 	}
 
-	@Override
+	
 	public Registro update(Registro entity) {
 		// TODO Auto-generated method stub
 		entityManager.merge(entity);		
 		return entity;
 	}
 
-	@Override
+	
 	public void delete(Registro entity) {
 		// TODO Auto-generated method stub
 		entityManager.remove(entity);	
 	}
 
-	@Override
+	
 	public Registro findById(Integer id) {
 		// TODO Auto-generated method stub
 		return entityManager.find(Registro.class, id);	
 	}
 
-	@Override
+	
 	public List<Registro> findAll() {
 		String jpql = "Select r from Registro r";
 		TypedQuery<Registro> ret = entityManager.createQuery(jpql, Registro.class);

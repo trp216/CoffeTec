@@ -13,14 +13,11 @@ import lombok.Setter;
 //@Data
 @Getter
 @Setter
-public class Viaje {
+public class TipoVariable {
 	
 	@Id
-	private Integer id_viaje;
+	private Integer idTipoVariable;
 	
-	private double distancia, peso_carga;
-	
-	private Date fecha_inicio, fecha_fin;
-	
+	private String nombre, nombreUnidad, escala;
 
 }

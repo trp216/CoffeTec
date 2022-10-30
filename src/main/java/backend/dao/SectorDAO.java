@@ -15,38 +15,33 @@ import backend.model.Sector;
 @Repository
 @Transactional
 @Scope("singleton")
-public class SectorDAO implements ISectorDAO{
+public class SectorDAO {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Override
 	public Sector save(Sector entity) {
 		// TODO Auto-generated method stub
 		entityManager.persist(entity);		
 		return entity;
 	}
 
-	@Override
 	public Sector update(Sector entity) {
 		// TODO Auto-generated method stub
 		entityManager.merge(entity);		
 		return entity;
 	}
 
-	@Override
 	public void delete(Sector entity) {
 		// TODO Auto-generated method stub
 		entityManager.remove(entity);		
 	}
 
-	@Override
 	public Sector findById(Integer id) {
 		// TODO Auto-generated method stub
 		return entityManager.find(Sector.class, id);
 	}
 
-	@Override
 	public List<Sector> findAll() {
 		// TODO Auto-generated method stub
 		String jpql = "Select s from Sector s";

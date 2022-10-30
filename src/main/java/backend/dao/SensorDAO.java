@@ -15,38 +15,33 @@ import backend.model.Sensor;
 @Repository
 @Transactional
 @Scope("singleton")
-public class SensorDAO implements ISensorDAO{
+public class SensorDAO {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Override
 	public Sensor save(Sensor entity) {
 		// TODO Auto-generated method stub
 		entityManager.persist(entity);		
 		return entity;	
 	}
 
-	@Override
 	public Sensor update(Sensor entity) {
 		// TODO Auto-generated method stub
 		entityManager.merge(entity);		
 		return entity;
 	}
 
-	@Override
 	public void delete(Sensor entity) {
 		// TODO Auto-generated method stub
 		entityManager.remove(entity);	
 	}
 
-	@Override
 	public Sensor findById(Integer id) {
 		// TODO Auto-generated method stub
 		return entityManager.find(Sensor.class, id);
 	}
 
-	@Override
 	public List<Sensor> findAll() {
 		// TODO Auto-generated method stub
 		String jpql = "Select s from Sensor s";
