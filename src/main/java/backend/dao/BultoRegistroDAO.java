@@ -10,42 +10,45 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import backend.model.TipoVariable;
+import backend.model.BultoRegistro;
+
 
 @Repository
 @Transactional
 @Scope("singleton")
-public class TipoVariableDAO {
-
+public class BultoRegistroDAO {
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	public TipoVariable save(TipoVariable entity) {
+	public BultoRegistro save(BultoRegistro entity) {
 		// TODO Auto-generated method stub
-		entityManager.persist(entity);		
+		entityManager.persist(entity);
 		return entity;
 	}
 
-	public TipoVariable update(TipoVariable entity) {
+	
+	public BultoRegistro update(BultoRegistro entity) {
 		// TODO Auto-generated method stub
 		entityManager.merge(entity);		
 		return entity;
 	}
 
-	public void delete(TipoVariable entity) {
+	
+	public void delete(BultoRegistro entity) {
 		// TODO Auto-generated method stub
-		entityManager.remove(entity);
+		entityManager.remove(entity);	
 	}
 
-	public TipoVariable findById(Integer id) {
+	
+	public BultoRegistro findById(Integer id) {
 		// TODO Auto-generated method stub
-		return entityManager.find(TipoVariable.class, id);
+		return entityManager.find(BultoRegistro.class, id);	
 	}
-
-	public List<TipoVariable> findAll() {
-		// TODO Auto-generated method stub
-		String jpql = "Select tv from TipoVariable tv";
-		TypedQuery<TipoVariable> ret = entityManager.createQuery(jpql, TipoVariable.class);
+	
+	public List<BultoRegistro> findAll() {
+		String jpql = "Select b from BultoRegistro b";
+		TypedQuery<BultoRegistro> ret = entityManager.createQuery(jpql, BultoRegistro.class);
 		return 	ret.getResultList();
 	}
 

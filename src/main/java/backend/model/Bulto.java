@@ -12,14 +12,13 @@ import lombok.Setter;
 //@Data
 @Getter
 @Setter
-public class Sensor {
+public class Bulto {
 	
 	@Id
-	private Integer id_sensor;
+	private Integer id_Bulto;
 	
-	private String ref_sensor, state, postal_code, 
-		country, serial_controler_number;
+	private Double peso;
 	
-	private Double intervalo_registro;
+	private String idQR;
 
 }

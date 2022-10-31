@@ -18,7 +18,7 @@ public class Viaje {
 	@Id
 	private Integer id_viaje;
 	
-	private double distancia, peso_carga;
+	private double distancia;
 	
 	private Date fecha_inicio, fecha_fin;
 	

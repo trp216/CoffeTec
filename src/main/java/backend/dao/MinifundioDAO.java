@@ -10,43 +10,49 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import backend.model.Sector;
+import backend.model.Minifundio;
+
 
 @Repository
 @Transactional
 @Scope("singleton")
-public class SectorDAO {
+public class MinifundioDAO {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public Sector save(Sector entity) {
+	
+	public Minifundio save(Minifundio entity) {
 		// TODO Auto-generated method stub
-		entityManager.persist(entity);		
+		entityManager.persist(entity);
 		return entity;
 	}
 
-	public Sector update(Sector entity) {
+	
+	public Minifundio update(Minifundio entity) {
 		// TODO Auto-generated method stub
 		entityManager.merge(entity);		
 		return entity;
 	}
 
-	public void delete(Sector entity) {
+	
+	public void delete(Minifundio entity) {
 		// TODO Auto-generated method stub
-		entityManager.remove(entity);		
+		entityManager.remove(entity);	
 	}
 
-	public Sector findById(Integer id) {
+	
+	public Minifundio findById(Integer id) {
 		// TODO Auto-generated method stub
-		return entityManager.find(Sector.class, id);
+		return entityManager.find(Minifundio.class, id);	
 	}
 
-	public List<Sector> findAll() {
-		// TODO Auto-generated method stub
-		String jpql = "Select s from Sector s";
-		TypedQuery<Sector> ret = entityManager.createQuery(jpql, Sector.class);
+	
+	public List<Minifundio> findAll() {
+		String jpql = "Select m from Minifundio r";
+		TypedQuery<Minifundio> ret = entityManager.createQuery(jpql, Minifundio.class);
 		return 	ret.getResultList();
 	}
+	
 
 }

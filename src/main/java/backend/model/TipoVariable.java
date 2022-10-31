@@ -1,6 +1,5 @@
 package backend.model;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 
@@ -19,5 +18,7 @@ public class TipoVariable {
 	private Integer idTipoVariable;
 	
 	private String nombre, nombreUnidad, escala;
+	
+	private Integer limite_inf1, limite_inf2, limite_sup1, limite_sup2;
 
 }

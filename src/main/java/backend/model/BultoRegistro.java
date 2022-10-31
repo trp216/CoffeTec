@@ -1,5 +1,6 @@
 package backend.model;
 
+import java.util.Date;
 
 import javax.persistence.Entity;
 
@@ -12,14 +13,13 @@ import lombok.Setter;
 //@Data
 @Getter
 @Setter
-public class Sensor {
+public class BultoRegistro {
 	
 	@Id
-	private Integer id_sensor;
+	private Integer id_bulto_registro;
 	
-	private String ref_sensor, state, postal_code, 
-		country, serial_controler_number;
+	private String lugar, detalle;
 	
-	private Double intervalo_registro;
+	private Date fecha;
 
 }

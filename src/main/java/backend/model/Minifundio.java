@@ -13,14 +13,15 @@ import lombok.Setter;
 //@Data
 @Getter
 @Setter
-public class Sector {
+public class Minifundio {
 	
 	@Id
-	private Integer id_sector;
+	private Integer id_Minifundio;
 	
-	private String nombre_plantas, nombre_region;
+	private String nombre_planta, nombre_region;
 	
-	private Date fecha_siembra_plantas, fecha_ultima_recoleccion,
-					fecha_ultima_poda;
+	private Date fecha_siembra_plantas,
+				fecha_ultima_recoleccion,
+				fecha_ultima_poda;
 
 }

@@ -1,5 +1,6 @@
 package backend.model;
 
+import java.awt.Image;
 
 import javax.persistence.Entity;
 
@@ -12,14 +13,13 @@ import lombok.Setter;
 //@Data
 @Getter
 @Setter
-public class Sensor {
+public class Cafetos {
 	
 	@Id
-	private Integer id_sensor;
+	private Integer id_cafetos;
 	
-	private String ref_sensor, state, postal_code, 
-		country, serial_controler_number;
+	private String idQR, estado, enfermedad;
 	
-	private Double intervalo_registro;
+	private Image foto;
 
 }
