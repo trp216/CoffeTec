@@ -1,5 +1,6 @@
 package backend.rest;
 
+import backend.services.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,7 @@ import backend.model.Persona;
 public class PersonaRestController {
 	
 	@Autowired
-	private PersonaRestController personaService;
+	private PersonaService personaService;
 	
 	@RequestMapping(value = "/api/persona/", method = RequestMethod.GET)
 	public Iterable<Persona> findAll() {

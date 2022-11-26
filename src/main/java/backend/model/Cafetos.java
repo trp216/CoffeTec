@@ -2,24 +2,29 @@ package backend.model;
 
 import java.awt.Image;
 
-import javax.persistence.Entity;
-
-import org.springframework.data.annotation.Id;
-
 import lombok.Getter;
 import lombok.Setter;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
 
 @Entity
 //@Data
 @Getter
 @Setter
 public class Cafetos {
-	
+
 	@Id
 	private Integer id_cafetos;
 	
 	private String idQR, estado, enfermedad;
-	
-	private Image foto;
+
+	@Lob
+	@Column(name = "imagedata")
+	private byte[] imageData;
 
 }

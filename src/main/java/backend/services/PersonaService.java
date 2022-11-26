@@ -10,7 +10,9 @@ import backend.model.Persona;
 
 @Service
 public class PersonaService {
-	
+
+	//reference to upload an image https://bushansirgur.in/spring-boot-file-upload-and-download-with-database/
+
 	@Autowired
 	private PersonaDAO pDAO;
 

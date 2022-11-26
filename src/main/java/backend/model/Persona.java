@@ -1,10 +1,11 @@
 package backend.model;
 
-import java.awt.Image;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
 
-import org.springframework.data.annotation.Id;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,9 @@ public class Persona {
 	private Integer id_persona;
 	
 	private String nombre, telefono, correo, rol, lugar_trabajo;
-	
-	private Image foto;
+
+	@Lob
+	@Column(name = "imagedata")
+	private byte[] foto;
 
 }

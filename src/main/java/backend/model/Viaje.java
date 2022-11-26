@@ -3,8 +3,8 @@ package backend.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
 
 import lombok.Getter;
 import lombok.Setter;
