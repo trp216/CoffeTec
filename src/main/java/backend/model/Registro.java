@@ -2,8 +2,10 @@ package backend.model;
 
 import java.util.Date;
 
-import javax.persistence.*;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,7 +41,7 @@ public class Registro {
 	private Sensor sensor;
 
 	private Date fecha;
-	
+
 	private String dato;
 
 }
