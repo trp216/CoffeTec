@@ -48,4 +48,10 @@ public class SensorDAO {
 		TypedQuery<Sensor> ret = entityManager.createQuery(jpql, Sensor.class);
 		return 	ret.getResultList();
 	}
+
+    public Sensor findByRef_sensor(String ref_sensor) {
+		return (Sensor) entityManager.createQuery("FROM Sensor u WHERE u.ref_sensor = :ref")
+				.setParameter("ref", ref_sensor)
+				.getSingleResult();
+    }
 }

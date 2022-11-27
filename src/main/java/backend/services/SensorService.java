@@ -47,5 +47,10 @@ public class SensorService {
 		return sDAO.findAll();
 	}
 
+	public Sensor findByRef_sensor(String ref_sensor) {
+		return sDAO.findByRef_sensor(ref_sensor);
+	}
+
+
 
 }

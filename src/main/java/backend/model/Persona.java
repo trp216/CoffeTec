@@ -1,10 +1,7 @@
 package backend.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 
 import lombok.Getter;
@@ -17,6 +14,7 @@ import lombok.Setter;
 public class Persona {
 	
 	@Id
+	@GeneratedValue
 	private Integer id_persona;
 	
 	private String nombre, telefono, correo, rol, lugar_trabajo;

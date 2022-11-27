@@ -1,10 +1,14 @@
 package backend.dao;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import backend.dto.Registro_MinifundioDTO;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,6 +55,13 @@ public class RegistroDAO {
 		TypedQuery<Registro> ret = entityManager.createQuery(jpql, Registro.class);
 		return 	ret.getResultList();
 	}
-	
+
+	public Registro findLastBySensorId(Integer sensor_id) {
+		String jpql = "select t from Registro t where t.sensor.id_sensor = :ref_id order by t.id desc";
+		Registro result = entityManager.createQuery(jpql, Registro.class).setParameter("ref_id", sensor_id).getResultList().get(0);
+		return 	result;
+	}
+
+
 
 }
