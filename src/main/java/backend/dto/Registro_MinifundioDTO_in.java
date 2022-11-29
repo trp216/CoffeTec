@@ -1,21 +1,18 @@
 package backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-public class Registro_MinifundioDTO {
+public class Registro_MinifundioDTO_in {
     private String deviceID;
-    private String datetime;
+
     private double ph;
     private double temperature;
     private double humidity;
-    //@JsonProperty("P")
-
+    @JsonProperty("P")
     private double P;
-    //@JsonProperty("K")
+    @JsonProperty("K")
     private double K;
-    //@JsonProperty("N")
+    @JsonProperty("N")
     private double N;
 
     public String getDeviceID() {
@@ -24,14 +21,6 @@ public class Registro_MinifundioDTO {
 
     public void setDeviceID(String deviceID) {
         this.deviceID = deviceID;
-    }
-
-    public String getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
     }
 
     public double getPh() {
@@ -86,7 +75,6 @@ public class Registro_MinifundioDTO {
     public String toString() {
         return "Registro_MinifundioDTO{" +
                 "deviceID='" + deviceID + '\'' +
-                ", datetime='" + datetime + '\'' +
                 ", ph=" + ph +
                 ", temperature=" + temperature +
                 ", humidity=" + humidity +

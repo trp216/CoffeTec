@@ -1,10 +1,9 @@
 package backend.services;
 
-import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import backend.dto.Registro_MinifundioDTO;
-import backend.model.Sensor;
+import backend.dto.Registro_MinifundioDTO_in;
+import backend.dto.Registro_MinifundioDTO_out;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,23 +62,23 @@ public class RegistroService {
 	public void delete(Registro registro){rDAO.delete(registro);}
 
 
-	public Registro_MinifundioDTO findAllBySensorRef(String device_id) {
+	public Registro_MinifundioDTO_out findAllBySensorRef(String device_ref) {
 		//		10232022_A001_sensor_ph
 		List<String> sensor_types = Arrays.asList("ph", "temperature", "humidity", "P", "K", "N");
 
 		List<Double> sensor_values = new ArrayList<Double>();
 
-		Registro_MinifundioDTO last_device_registros = new Registro_MinifundioDTO();
+		Registro_MinifundioDTO_out last_device_registros = new Registro_MinifundioDTO_out();
 
-		last_device_registros.setDeviceID(device_id);
+		last_device_registros.setDeviceID(device_ref);
 
 		for (String sensor: sensor_types) {
-			String ref_sensor_id = device_id+"_sensor_"+sensor;
+			String ref_sensor_id = device_ref+"_sensor_"+sensor;
 
 			Integer sensor_id = sensorService.findByRef_sensor(ref_sensor_id).getId_sensor();
 			Registro r = findLastBySensorId(sensor_id);
-			last_device_registros.setDatetime(r.getFecha().toString());
 			sensor_values.add(Double.parseDouble(r.getDato()));
+			last_device_registros.setDatetime(r.getFecha().toString());
 		}
 
 		last_device_registros.setPh(sensor_values.get(0));
@@ -98,9 +97,9 @@ public class RegistroService {
 		return rDAO.findLastBySensorId(sensor_id);
 	}
 
-	public void saveRaw_registro(Registro_MinifundioDTO registro) {
+	public void saveRaw_registro(Registro_MinifundioDTO_in registro) {
 		String sensor_base_ref = registro.getDeviceID();
-		Date date = Date.from(LocalDateTime.parse(registro.getDatetime()).toInstant(OffsetDateTime.now().getOffset()));
+		Date date = Date.from(LocalDateTime.now().toInstant(OffsetDateTime.now().getOffset()));
 
 		saveRegistro(new Registro(sensorService.findByRef_sensor(sensor_base_ref+"_sensor_ph"),date,Double.toString(registro.getPh())));
 		saveRegistro(new Registro(sensorService.findByRef_sensor(sensor_base_ref+"_sensor_temperature"),date,Double.toString(registro.getTemperature())));
